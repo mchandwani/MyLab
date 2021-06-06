@@ -46,14 +46,13 @@ pipeline{
                 script
                 {
                      def NexusRepo = Version.endsWith("SNAPSHOT") ? "MukeshDevOpsLab-SNAPSHOT" : "MukeshDevOpsLab-RELEASE"
-                    nexusArtifactUploaderartifacts: [
-                    [
+                    nexusArtifactUploaderartifacts: 
+                    [[
                         artifactId: "${ArtifactId}",
                         classifier: '',
                         file: "target/${ArtifactId}-${Version}.war",
                         type: 'war'
-                    ]
-                    ],
+                    ]],
                     credentialsId: 'c50b85e4-316a-4e9a-b6c6-0e4c1dc631f9',
                     groupId: "${GroupId}",
                     nexusUrl: '172.20.10.168:8081',
